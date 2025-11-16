@@ -1,67 +1,125 @@
-# Custom Umbrella — README
+🌂 Custom Umbrella Preview Tool
 
-> ⚡️ *Make your umbrellas pop. Fast previews. Clean code.*
+A responsive web tool that lets users upload a logo and preview it on an umbrella mockup with live color switching, smooth loading animations, and a reset system.
+Built using pure HTML, CSS, and Vanilla JavaScript — no frameworks needed.
 
-This project is a small, responsive web demo that lets users preview custom logos on umbrella mockups and switch umbrella colors/themes. It's lightweight, mobile-friendly, and built to be easily extended.
+🚀 Features
+🟣 1. Live Logo Upload
 
----
+Upload .png or .jpg (up to 5MB)
 
-## 💎what makes this cool
+Logo appears neatly at the bottom-center of the umbrella
 
-* **Instant logo preview** — Upload a `.png` or `.jpg` (≤5MB) and see it on the umbrella immediately.
-* **Bottom-centered logo placement** — The uploaded logo snaps to the bottom-center of the umbrella mockup for realistic placement.
-* **Theme switching with loader** — Smooth theme switches (Blue / Yellow / Pink) with a centered loading animation.
-* **Responsive UI** — Works across desktop/tablet/phone (mobile-first CSS breakpoints).
-* **Non-blocking UX** — Loader hides the logo while the umbrella image is swapping to avoid visual glitches.
-* **Small and dependency-free** — Vanilla HTML/CSS/JS — no frameworks required.
-* **Accessible file picker** — File input is friendly to mobile browsers and keyboard users.
+Automatically hidden while loading
 
----
+Always maintains aspect ratio
 
-## 🧭 Quick Start
+🎨 2. Theme Switching (Blue, Yellow, Pink)
 
-1. Clone the repo or copy the files into a folder.
-2. Ensure `assets/` contains `Blue.png`, `Yello.png`, `Pink.png`, `loader_icon.svg`, `upload_icon.svg` and the `icons/` folder with theme icons.
-3. Open `index.html` in a browser.
+Instant umbrella color switching
 
-No build step required — just open the file or serve with a static server.
+Smooth fade animation
 
-Example (with `http-server`):
+Loader appears at center while switching
 
-```bash
+Logo hides during transition and reappears afterward
+
+🔄 3. Smart Reset Button
+
+The "Reset" button:
+
+✔ Removes the uploaded logo
+✔ Keeps the same umbrella color (does not reset to Blue)
+✔ Shows a loader
+✔ Hides the umbrella image briefly
+✔ Then fades the same umbrella back in
+✔ Background stays unchanged
+✔ Logo container stays hidden until a new upload
+
+This gives a very clean, professional “reset” behavior.
+
+📱 4. Fully Responsive
+
+Works on all screen sizes
+
+Logo & Loader auto-resize for mobile
+
+Umbrella scales smoothly
+
+No overlap or breaking layout
+
+⚡ 5. Loader With Smart Behavior
+
+Always centered perfectly
+
+Appears during:
+
+Theme switches
+
+Logo uploads
+
+Reset action
+
+Logo hides while loader is active
+
+Reappears only when necessary
+
+🏗️ Tech Used
+
+HTML5 – Structure
+
+CSS3 – Styling + Responsive Design
+
+JavaScript (Vanilla) – Logo uploads, theme switching, loader logic
+
+Zero libraries. Zero dependencies.
+
+
+🧩 How It Works
+Logo Upload
+
+File input triggers FileReader()
+
+Logo is previewed via base64 URL
+
+Logo container becomes visible only after upload
+
+Theme Switching
+
+Hides logo
+
+Shows loader
+
+Fades umbrella out → swaps image → fades in
+
+Shows logo again if uploaded
+
+Reset Button
+
+Clears uploaded logo
+
+Hides logo container
+
+Shows loader
+
+Fades umbrella out → reloads same umbrella → fades in
+
+
+
+💡 Installation / Usage
+
+Just download the folder and open:
+
+index.html
+
+
+No server or setup required.
+
+If you want a local server:
+
 npx http-server .
-# then visit http://localhost:8080
-```
-
----
-
-## 🔧 Files
-
-* `index.html` — markup (keeps original structure)
-* `style.css` — responsive styles (mobile-first)
-* `script.js` — logo upload, validation, theme switching logic
-* `assets/` — images and icons used in the demo
-
----
-
-## ✅ UX / Behaviour Notes
-
-* The logo container is **hidden** until the user uploads an image.
-* During theme changes the logo is temporarily hidden and the **loader is shown in the center**.
-* The logo is constrained to the logo container size and uses `object-fit: contain` so it never overflows.
-* Image validation prevents non-image files and files larger than 5MB.
-
----
-
-## 🚀 Ideas to flex further (future enhancements)
-
-* Drag / drop + drag-to-position the logo across the umbrella surface.
-* Scale & rotate handles for the uploaded logo (pinch/gesture on mobile).
-* Export final preview to PNG (client-side canvas rendering).
-* Multiple logo layers and pattern fills.
-* Add product preview mockups (e.g., different umbrella shapes, sizes).
 
 
+Then visit:
 
-Made with ☕️ and a little CSS magic.
-
+http://localhost:8080
