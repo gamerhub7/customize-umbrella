@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Arimo', sans-serif;
+  background: #C5E0DC;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+  min-height: calc(100vh - 2rem);
+  background: transparent;
+}
+
+@media (min-width: 820px) {
+  .container {
+    grid-template-columns: 1fr 420px;
+    gap: 1.25rem;
+    align-items: center;
+  }
+}
+
+
+.image-container {
+  position: relative;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.umbrella-image {
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity .35s ease;
+}
+
+
+.loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+.loader-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.loader-container img {
+  width: 40px;
+  height: 40px;
+  animation: spin 1.6s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-container{
+  position: absolute;
+  bottom: 40px;   
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.uploaded-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+.themes-container {
+  padding: 0.75rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.themes-container h1 {
+  font-size: 1.4rem;
+}
+.themes {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.themes img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.themes img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(2,6,23,0.06);
+}
+
+
+.pera {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+.pera h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.pera p { color: #6b7280; font-size: .95rem; line-height: 1.35; }
+
+
+.upload-button {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: .25rem;
+}
+#logo-upload-input {
+  display: none; 
+}
+#logo-upload-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem .9rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.reset-btn {             
+  padding: .7rem 1rem;
+  background: #ff4747;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#logo-upload-button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(2,6,23,0.04); }
+#logo-upload-button img { width: 20px; height: 20px; }
+
+
+@media (max-width: 520px) {
+
+ 
+  .logo-container { 
+    bottom: 12px;       
+    top: auto;        
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 60px; 
+    height: 60px; 
+  }
+
+ 
+  .loader-container { 
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  .themes-container h1 { font-size: 1.2rem; }
+  .themes img { width: 40px; height: 40px; }
+  .image-container { padding: 0.75rem; min-height: 260px; }
+}
+
+
+@media (max-width: 360px) {
+  body { padding: .6rem; }
+
+  .themes-container h1 { font-size: 1.05rem; }
+
+
+  .logo-container { 
+    width: 50px; 
+    height: 50px; 
+    bottom: 10px;
+  }
+}
